@@ -1,0 +1,16 @@
+www.****
+{
+  gzip
+  root /root/public
+  errors {
+    404 404.html
+    400 404.html
+  }
+  proxy /run localhost:10000 {
+    websocket
+    header_upstream -Origin
+  }
+  tls {
+    dns cloudflare
+  }
+}
